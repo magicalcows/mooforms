@@ -1,7 +1,5 @@
-<div style="float:right"><a href="http://www.magicalcows.com" target="_blank"><img src="http://www.magicalcows.com/img/magicalcows-logo-sm.jpg" alt="Magical Cows Logo" height="75" /></a>
-</div>
-
 # MooForms (pre-alpha)
+<a href="http://www.magicalcows.com" target="_blank"><img src="http://www.magicalcows.com/img/magicalcows-logo-sm.jpg" align="right" alt="Magical Cows Logo" height="75" /></a>
 This repo is very much a work in progress.  Poke around, but we don't recommend using this in production yet!
 
 ## Installation (untesetd!)
