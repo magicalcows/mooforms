@@ -1,0 +1,32 @@
+<div class="form-group<?php 
+          if ($error) { echo ' has-error'; } 
+          elseif ($_isPost) { echo ' has-success'; }
+          if ($this->showFeedback) { echo ' has-feedback'; }?>">
+    <div class="<?php echo preg_replace('#\-(\d+)$#', '-offset-\1', $this->horizontalLabelClass); ?> <?php echo $this->horizontalInputClass?>">
+        <div class="checkbox">
+
+<?php 
+    
+    $html = '<label><input type="checkbox"';
+    if (@$id) $html .= ' id="' . $id . '"';
+    
+    if (empty($name)) $name = $id;
+    $html .= " name='$name'";
+    if ($value && $opt_value == $value) $html .= ' checked';
+    $html .= ' value="' . $opt_value . '"';
+    
+    $html .= ' /> ' . $label . '</label>';
+    
+    
+echo $html;
+
+
+?>
+       </div>
+    </div>
+<?php if (@$error) { ?>
+    <div class="<?php echo $this->horizontalHelpClass?>">
+      <p class="help-block"<?php if ($this->showFeedback) { echo " id='helpBlock$id'"; } ?>><?php echo $error ?></p>
+    </div>
+<?php } ?>
+</div>

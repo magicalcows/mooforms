@@ -1,0 +1,15 @@
+{
+    "name": "magicalcows/mooforms",
+    "version": "0.0.1-dev",
+    "description": "PHP Form library (very alpha - moo!)",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Magical Cows",
+            "email": "mooforms@magicalcows.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

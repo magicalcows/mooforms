@@ -1,0 +1,53 @@
+<div class="form-group<?php 
+  if ($error) { echo ' has-error'; } 
+  elseif ($_isPost) { echo ' has-success'; }
+  if ($this->showFeedback) { echo ' has-feedback'; }
+?>" id="<?php echo $id ?>"><?php if (@$inline) { ?><div class="checkbox"><?php } ?>
+<?php if (@$label) { ?>
+    <label style="padding-left: 0;"><b><?php echo $label; ?></b></label><br />
+<?php } ?>
+<?php if (@$help) { ?>
+    <div class="help-block"><?php echo $help; ?></div>
+<?php } ?>
+
+<?php 
+$inputs = Array();
+if (empty($id)) $id = uniqid('radio_');
+
+foreach($options as $k=>$opt) {
+    
+    if (is_numeric($k)) {
+        $opt_value = $key = $opt;
+        
+    } else {
+        $opt_value = $key = $k;
+    }
+    
+    $key = $this->makeKey($key);
+    
+    if (@$inline) { 
+      $html = '<label class="checkbox-inline">';
+    } else {
+      $html = '<div class="checkbox"><label>';
+    }
+    
+    $html .= '<input type="checkbox" id="' . $key . '"';
+    
+    if (empty($name)) $name = $id;
+    $html .= "name='{$name}[]'";
+    if ($value && in_array($opt_value, $value)) { $html .= ' checked'; }
+    $html .= ' value="' . $opt_value . '"';
+    
+    $html .= ' /> ' . $opt . '</label>';
+    if (!@$inline) { $html .= '</div>'; }
+    
+    $inputs[] = $html; 
+
+}
+echo join(@$inline?'':'', $inputs);
+?>
+<?php if (@$error) { ?>
+  <p class="help-block"<?php if ($this->showFeedback) { echo " id='helpBlock$id'"; } ?>><?php echo $error ?></p>
+<?php } ?>
+<?php if (@$inline) { ?></div><?php } ?>
+</div>

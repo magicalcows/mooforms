@@ -1,0 +1,33 @@
+<div class="form-group<?php 
+  if ($error) { echo ' has-error'; } 
+  elseif ($_isPost) { echo ' has-success'; }
+  if ($this->showFeedback) { echo ' has-feedback'; }
+?>">
+  <label class="control-label<?php if ($this->hideLabels) { echo ' sr-only'; } ?> <?php echo $this->horizontalLabelClass?>"><?php echo $label ?></label>
+  <div class="<?php echo $this->horizontalInputClass?>">
+    
+  <select id="<?php echo $id?>" name="<?php echo $name?>" class="form-control" <?php 
+    if (@$multiple) echo 'multiple ';
+    if ($size) echo "size='$size' "; 
+    if ( ($error || $_isPost) && $this->showFeedback) { echo "aria-describedby='helpBlock$id' "; }
+    if (is_array(@$otherAttributes)) {
+      foreach($otherAttributes as $k=>$v) {
+        echo "$k='$v' ";
+      }
+    }
+    ?>><?php foreach($options as $k=>$v) { ?>
+      <option value="<?php echo $k?>"<?php if ($k==$value) { echo ' SELECTED'; } ?>><?php echo $v?></option>
+    <?php } ?></select>
+  </div>
+  
+    <?php if (@$error) { ?>
+    <div class="<?php echo $this->horizontalHelpClass?>">
+      <p class="help-block"<?php if ($this->showFeedback) { echo " id='helpBlock$id'"; } ?>><?php echo $error ?></p>
+      </div>
+    <?php } elseif (@$help) { ?>
+      <div class="<?php echo $this->horizontalHelpClass?>">
+        <p class="help-block"><?php echo $help ?></p>
+      </div>
+    <?php } ?>
+
+</div>

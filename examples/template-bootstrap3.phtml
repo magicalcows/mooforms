@@ -1,0 +1,71 @@
+<?php
+use MooForms\Form;
+
+require __DIR__.'/config.php';
+$uri = $_SERVER['REQUEST_URI'];
+
+?>
+<html>
+  <head>
+    <title><?php echo $TITLE?></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/forms.css" />
+  </head>
+  <body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">MooForms</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="#">Docs</a></li>
+          <li class="dropdown active">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Examples <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <?php foreach($examples as $folder=>$name) { ?>
+                <li<?php if (strpos($uri,"/$folder")===0){ ?> class="active"<?php } ?>><a href="/<?php echo $folder?>"><?php echo $name?></a></li>
+              <?php } ?>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+<?php
+ini_set("highlight.comment", "#FCBC47");
+ini_set("highlight.default", "#fff");
+ini_set("highlight.html", "#808080");
+ini_set("highlight.keyword", "#3CBFCF; font-weight: bold");
+ini_set("highlight.string", "#F2F0A4");
+?>
+    <div class="container">
+
+      <div class="page-header"><h2><?php echo $TITLE ?></h2></div>
+      <?php echo $HTML; ?>
+      <?php if (isset($formConfigFile)) { ?>
+        <h3>Form Config</h3>
+        <div class="well well-php"><?php highlight_file($formConfigFile); ?></div>
+      <?php } ?>
+      <?php if (isset($fieldConfigFile)) { ?>
+        <h3>Fields Config</h3>
+        <div class="well well-php"><?php highlight_file($fieldConfigFile); ?></div>
+      <?php } ?>
+      
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  </body>
+</html>
+<font color="#6767F4">asdf</font>

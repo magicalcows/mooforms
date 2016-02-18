@@ -1,0 +1,28 @@
+<div class="form-group<?php 
+  if ($error) { echo ' has-error'; } 
+  elseif ($_isPost) { echo ' has-success'; }
+  if ($this->showFeedback) { echo ' has-feedback'; }
+?>">
+<?php 
+    
+    $html = '<label';
+    $html .= '><input type="checkbox"';
+    if (@$id) $html .= ' id="' . $id . '"';
+    
+    if (empty($name)) $name = $id;
+    $html .= " name='$name'";
+    if ($value && $opt_value == $value) $html .= ' checked';
+    $html .= ' value="' . $opt_value . '"';
+    
+    $html .= ' /> ' . $label . '</label>';
+    
+    
+echo $html;
+
+
+?>
+<?php if (@$error) { ?>
+  <p class="help-block"<?php if ($this->showFeedback) { echo " id='helpBlock$id'"; } ?>><?php echo $error ?></p>
+<?php } ?>
+
+</div>

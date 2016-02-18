@@ -1,0 +1,37 @@
+<div class="form-group<?php 
+  if ($error) { echo ' has-error'; } 
+  elseif ($_isPost && $value) { echo ' has-success'; }
+  if ($this->showFeedback) { echo ' has-feedback'; }
+?>">
+  <label class="control-label<?php if ($this->hideLabels) { echo ' sr-only'; } ?> <?php echo $this->horizontalLabelClass?>"><?php echo $label ?></label>
+  <div class="<?php echo $this->horizontalInputClass?>">
+  
+      <textarea id="<?php echo $id?>" name="<?php echo $name?>" 
+             class="form-control " <?php 
+        if (@$rows) { echo "rows='$rows' "; }
+        if ( ($error || $_isPost) && $this->showFeedback) { echo "aria-describedby='helpBlock$id' "; }
+        if (@$placeholder) { echo "placeholder='$placeholder' "; }
+        if (is_array(@$otherAttributes)) {
+          foreach($otherAttributes as $k=>$v) {
+            if (is_numeric($k)) {
+                echo "$v ";
+            } else {
+                echo "$k='$v' ";            
+            }
+            
+          }
+        }
+        ?>><?php echo $value?></textarea>
+        <?php if (@$error) { ?>
+            <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+        <?php } else if ($_isPost && $this->showFeedback && $value) { ?>
+          <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+        <?php } ?>
+    </div>
+    <?php if (@$error) { ?>
+        <div class="<?php echo $this->horizontalHelpClass?>">
+            <p class="help-block"<?php if ($this->showFeedback) { echo " id='helpBlock$id'"; } ?>><?php echo $error ?></p>
+        </div>
+      
+    <?php } ?>
+</div>

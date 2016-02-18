@@ -1,0 +1,26 @@
+<div class="form-group<?php 
+  if ($error) { echo ' has-error'; } 
+  elseif ($_isPost && $value) { echo ' has-success'; }
+  
+?>">
+  <label class="control-label<?php if ($this->hideLabels) { echo ' sr-only'; } ?>" for="<?php echo $id?>"><?php echo $label ?></label>
+  <textarea id="<?php echo $id?>" name="<?php echo $name?>" 
+         class="form-control" <?php 
+    if (@$rows) { echo "rows='$rows' "; }
+    if (@$placeholder) { echo "placeholder='$placeholder' "; }
+    if (is_array(@$otherAttributes)) {
+      foreach($otherAttributes as $k=>$v) {
+        if (is_numeric($k)) {
+            echo "$v ";
+        } else {
+            echo "$k='$v' ";            
+        }
+        
+      }
+    }
+    ?>><?php echo $value?></textarea>
+
+    <?php if (@$error) { ?>
+      <p class="help-block">><?php echo $error ?></p>
+    <?php } ?>
+</div>

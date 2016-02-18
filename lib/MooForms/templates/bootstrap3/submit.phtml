@@ -1,0 +1,11 @@
+<div class="form-group">
+  <label class="control-label sr-only">Submit Form</label>
+
+  <input type="submit" class="<?php if (@$className) { echo $className; } else { echo 'btn btn-default'; } ?>" value="<?php echo $value?>" <?php 
+    if (is_array(@$otherAttributes)) {
+      foreach($otherAttributes as $k=>$v) {
+        echo "$k='$v'";
+      }
+    }
+    ?> />
+</div>

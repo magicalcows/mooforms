@@ -1,0 +1,45 @@
+<div class="radio<?php 
+  if ($error) { echo ' has-error'; } 
+  elseif ($_isPost) { echo ' has-success'; }
+  if ($this->showFeedback) { echo ' has-feedback'; }
+  if (@$inline) { echo ' radio-inline'; } ?>
+?>" id="<?php echo $id ?>">
+<?php if (@$label) { ?>
+    <label style="padding-left: 0;"><b><?php echo $label; ?></b></label><br />
+<?php } ?>
+<?php if (@$help) { ?>
+    <div class="help-block"><?php echo $help; ?></div>
+<?php } ?>
+<?php 
+$inputs = Array();
+if (empty($id)) $id = uniqid('radio_');
+
+foreach($options as $k=>$opt) {
+    
+    if (is_numeric($k)) {
+        $opt_value = $key = $opt;
+        
+    } else {
+        $opt_value = $key = $k;
+    }
+    
+    $key = $this->makeKey($key);
+    
+    $html = '<label><input type="radio" id="' . $key . '"';
+    
+    if (@$name) $html .= " name='$name'";
+    else $html .= " name='$id'";
+    if ($opt_value == $value) { $html .= ' checked'; }
+    $html .= ' value="' . $opt_value . '"';
+    
+    $html .= ' /> ' . $opt . '</label>';
+    
+    $inputs[] = $html; 
+
+}
+echo join('<br />', $inputs);
+?>
+<?php if (@$error) { ?>
+  <p class="help-block"<?php if ($this->showFeedback) { echo " id='helpBlock$id'"; } ?>><?php echo $error ?></p>
+<?php } ?>
+</div>
