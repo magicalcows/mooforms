@@ -11,5 +11,10 @@
         }
     ],
     "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "MooForms\\": "lib/"
+        }
+    },
     "require": {}
 }
