@@ -17,16 +17,14 @@ Until we have a stable release, we will stay out of Packagist, but you can insta
         }
     }
 
-Or clone the repo, and switch to the `0.0.1-dev` branch:
+Or clone the repo:
 
     git clone https://github.com/magicalcows/mooforms.git
-    cd mooforms
-    checkout 0.0.1-dev
 
 ## Setup
 
 If you're using composer, then just include the `autoload.php` file from your `vendor` folder.
-If you download/clone the repo or something, you just need to include `lib/MooForms/Form.php` and setup any `use` statements you
+If you download/clone the repo or something, you just need to include `library/Form.php` and setup any `use` statements you
 want to use.
 
 ## Form Configuraiton
