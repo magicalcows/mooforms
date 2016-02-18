@@ -15,7 +15,7 @@ Until we have a stable release, we will stay out of packagelist, but you can ins
             }
         ],
         "require": {
-            "mooforms/mooforms": "0.0.1-dev"
+            "magicalcows/mooforms": "master"
         }
     }
 
