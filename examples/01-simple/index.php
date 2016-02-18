@@ -1,7 +1,7 @@
 <?php
 ini_set('display_errors', 'on');
 error_reporting(E_ALL);
-require '../../lib/mooforms/mooforms/Form.php';
+require '../../library/mooforms/mooforms/Form.php';
 require_once '../vendor/autoload.php';
 
 use Respect\Validation\Validator as v;
