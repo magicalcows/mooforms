@@ -3,7 +3,7 @@
 This repo is very much a work in progress.  Poke around, but we don't recommend using this in production yet!
 
 ## Installation (untesetd!)
-Until we have a stable release, we will stay out of packagelist, but you can install via composer like so:
+Until we have a stable release, we will stay out of Packagist, but you can install via composer like so:
 
     {
         "repositories": [
