@@ -1,7 +1,7 @@
 <?php
 ini_set('display_errors', 'on');
 error_reporting(E_ALL);
-require '../../lib/MooForms/Form.php';
+require '../../lib/mooforms/mooforms/Form.php';
 require_once '../vendor/autoload.php';
 
 use MooForms\Form;
