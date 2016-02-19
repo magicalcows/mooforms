@@ -31,12 +31,12 @@ The form will throw a `FormException` if anything is misconfigured, but this sho
 
 We will eventually include our own autoloader for folks not using composer.
 
-## Form Configuraiton
+## Form Configuration
 
 (we're still grazing over this content...)
 
 Quick Notes: when you instantiate a new form, you pass an associative array to the constructor. 
-The keys of this array directly coorespond to properties of the class.  Have a look at 
+The keys of this array directly correspond to properties of the class.  Have a look at 
 the [Form Class](https://github.com/magicalcows/mooforms/blob/master/library/Form.php) to see what you
 can set.  Some of them have been documented, we'll get our utters mooving and document the rest soon!
 Note: You can even set private properties this way, since the actual setting is done from within the constructor.
@@ -52,7 +52,7 @@ for a field or other component from our library.
 
 ### Field Config Options
 
-| Option | Required? | Default | Descriptio |
+| Option | Required? | Default | Description |
 | --- | --- | --- | --- |
 | `type` | No | "text" | The type of component. |
 | `name` | No | (value of id if specified) | The value of the name attribute. |
@@ -71,7 +71,7 @@ for a field or other component from our library.
 | `validateRespect` | No | (none) | Anon function that must return a respect validator.  The validator's assert method will be used.  This options is likely to change, use with caution! |
 
 ### Configuring `options` for `select`, `checkboxes` and `radios`.
-Array entries with string-based keys will have the key used as the value of the option/radio/checkbox, and the key's value will be the text/label. When the key is an integer then the key's value in the array will be used for both the value of the option/radio/checkbox and the text/label. If you need to use numbers as values, be sure to define them as strings - or if you'r getting numeric IDs from a database, cast them to strings: `$record['id'] = (string)$record['id'];`.
+Array entries with string-based keys will have the key used as the value of the option/radio/checkbox, and the key's value will be the text/label. When the key is an integer then the key's value in the array will be used for both the value of the option/radio/checkbox and the text/label. If you need to use numbers as values, be sure to define them as strings - or if you are getting numeric IDs from a database, cast them to strings: `$record['id'] = (string)$record['id'];`.
 
 ### Validating with a `validate` function:
 Anonymous validation functions will receive $value, $allFormData, $formInstanceReference. The function should perform validation and throw 
@@ -84,4 +84,3 @@ Must return value on success (allowing validators to act as filters.)
 ![grazing](http://images.fineartamerica.com/images-medium-large/beef-cattle-grazing-in-pasture-inga-spence-and-photo-researchers-.jpg "mooooo")
 
 ### Moo
-
